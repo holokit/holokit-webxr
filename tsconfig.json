@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+		"target": "ESNext",
+		"useDefineForClassFields": true,
+		"module": "ESNext",
+		"lib": ["DOM", "ESNext"],
+    "typeRoots": ["./node_modules/@types"],
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "noImplicitOverride": true,
+    "isolatedModules": false,
+    "allowJs": false,
+    "outDir": "./dist",
+    "noEmit": false,
+    "rootDir": "./src",
+    "sourceMap": true,
+    "strict": true,         
+    "noImplicitAny": true,
+    "noUnusedLocals": false,
+    "skipLibCheck": true,
+		"noUnusedParameters": true,
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*", "tests/**/*"],
+  "exclude": [
+    "node_modules"
+  ]
+}
