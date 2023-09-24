@@ -16,39 +16,35 @@ export interface XRRenderStateInit {
   layers?: XRLayer[]
 }
 
-export const XRRenderStateDefaultInit: XRRenderStateInit = Object.freeze({
-  depthNear: 0.1,
-  depthFar: 1000.0,
-  inlineVerticalFieldOfView: null,
-  baseLayer: null,
-  layers: []
-});
-
-
 export default class XRRenderState {
-  #config: XRRenderStateInit;
+  #depthNear: number;
+  #depthFar: number;
+  #inlineVerticalFieldOfView: number | null;
+  #baseLayer: XRWebGLLayer | null;
 
   /**
    * @param {Object?} stateInit
    */
   constructor(stateInit: XRRenderStateInit = {}) {
-    const config = Object.assign({}, XRRenderStateDefaultInit, stateInit);
-    this.#config = config;
+    this.#depthNear = stateInit.depthNear ?? 0.1;
+    this.#depthFar = stateInit.depthNear ?? 1000.0;
+    this.#inlineVerticalFieldOfView = stateInit.inlineVerticalFieldOfView ?? null;
+    this.#baseLayer = stateInit.baseLayer ?? null;
   }
 
   get depthNear(): number { 
-    return this.#config.depthNear; 
+    return this.#depthNear; 
   }
 
   get depthFar(): number { 
-    return this.#config.depthFar; 
+    return this.#depthFar; 
   }
 
   get inlineVerticalFieldOfView(): number | null { 
-    return this.#config.inlineVerticalFieldOfView; 
+    return this.#inlineVerticalFieldOfView; 
   }
 
-  get baseLayer(): XRWebGLLayer { 
-    return this.#config.baseLayer; 
+  get baseLayer(): XRWebGLLayer | null { 
+    return this.#baseLayer; 
   }
 }

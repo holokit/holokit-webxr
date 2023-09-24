@@ -2,42 +2,49 @@
 // SPDX-FileContributor: Botao Amber Hu <botao@holoi.com>
 // SPDX-License-Identifier: MIT
 
+import { XRSession } from "webxr";
+
 /**
  * @see https://immersive-web.github.io/lighting-estimation/#xrlightprobe-interface
  */
 
-XRLightProbeInit {
-  XRReflectionFormat reflectionFormat = "srgba8";
-};
+// interface XRSession {
+//   preferredReflectionFormat: XRPreferredReflectionFormat
+//   requestLightProbe: (options: { reflectionFormat?: XRPreferredReflectionFormat }) => Promise<XRLightProbe>
+// }
+// interface XRFrame {
+//   getLightEstimate?: (probe: XRLightProbe) => XRLightEstimate
+// }
 
-interface XRSession {
-  preferredReflectionFormat: XRPreferredReflectionFormat
-  requestLightProbe: (options: { reflectionFormat?: XRPreferredReflectionFormat }) => Promise<XRLightProbe>
-}
-interface XRFrame {
-  getLightEstimate?: (probe: XRLightProbe) => XRLightEstimate
-}
-interface XRWebGLBinding {
-  getReflectionCubeMap?: (probe: XRLightProbe) => WebGLTexture
-}
-interface XRLightProbe {
-  probeSpace: XRSpace
-}
+// interface XRWebGLBinding {
+//   getReflectionCubeMap?: (probe: XRLightProbe) => WebGLTexture
+// }
 
 export enum XRReflectionFormat {
   "srgba8",
   "rgba16f",
 }
 
-
 interface XRLightProbe {
     readonly probeSpace: XRSpace;
     onreflectionchange: EventHandler;
 }
 
+
+export interface XRLightProbeInit {
+  XRReflectionFormat reflectionFormat = "srgba8";
+};
+
+XRSession.prototype.requestLightProbe = async (optional XRLightProbeInit options = {}) => Promise<XRLightProbe>  {
+
+};
+
+XRSession.prototype.preferredReflectionFormat = get () => XRReflectionFormat {
+
+}
+
 export default class XRLightProbe extends EventTarget {
-	constructor(options = {}){
-		this[PRIVATE] = {
-		};
+	constructor(probeSpace: XRSpace, options = {}){
+		
 	}
 }

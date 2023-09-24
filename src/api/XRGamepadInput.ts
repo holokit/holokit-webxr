@@ -10,7 +10,6 @@ import XRInputSource from './XRInputSource';
 import XRPose from './XRPose';
 import XRRigidTransform from './XRRigidTransform';
 
-export const PRIVATE = Symbol('@@webxr-polyfill/XRRemappedGamepad');
 
 const PLACEHOLDER_BUTTON = { pressed: false, touched: false, value: 0.0 };
 Object.freeze(PLACEHOLDER_BUTTON);

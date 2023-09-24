@@ -1,60 +1,68 @@
-# holokit-webxr
+# WebXR Polyfill for HoloKit WebXR Viewer
 
-- [x] WebXR Device API (Source, Issues, Explainer) 
-- [x] WebXR Gamepads Module - Level 1 (Source, Issues, Explainer)
-- [x] WebXR Augmented Reality Module - Level 1 (Source, Issues, Explainer)
+This repo contains polyfill code that implements the WebXR Device API for use *only* in HoloKit WebXR Viewer.
+
+It implements two modes under `immersive-ar` sessions:
+- Handheld AR (Monocular AR) 
+- Headworn AR (Stereoscopic AR) using HoloKit
+
+## Implementation
+
+We did not base on the official implementation of WebXR polyfill. We rewrite the WebXR polyfill in TypeScript for strict type checking purpose.
+
+This implementation of WebXR supports a number of features: 
+
+- [x] WebXR Device API  
+  - https://immersive-web.github.io/webxr/
+- [x] WebXR Gamepads Module - Level 1 
+  - https://immersive-web.github.io/webxr-gamepads-module/
+  - https://github.com/immersive-web/webxr-input-profiles
+- [x] WebXR Augmented Reality Module - Level 1
+  - optional feature descriptor: `"secondary-views"`
   - https://immersive-web.github.io/webxr-ar-module/
-- [x] WebXR Hit Test Module (Source, Issues, Explainer)
-- [] WebXR DOM Overlays Module (Source, Issues, Explainer)
-- [] WebXR Layers API Level 1 (Source, Issues, Explainer)
-- [x] WebXR Anchors Module (Source, Issues, Explainer)
-- [x] WebXR Lighting Estimation API Level 1 (Source, Issues, Explainer)
-- [x] WebXR Hand Input Module - Level 1 (Source, Issues, Explainer)
-- [x] WebXR Mesh Detection Module 
+- [x] WebXR Hit Test Module 
+  - feature descriptor: `"hit-test"`
+  - https://immersive-web.github.io/hit-test/
+- [ ] WebXR DOM Overlays Module 
+  - https://immersive-web.github.io/dom-overlays
+- [ ] WebXR Layers API Level 1 
+  - feature descriptor: `"layers"`
+  - https://immersive-web.github.io/layers/
+- [x] WebXR Anchors Module 
+  - feature descriptor: `"anchors"`
+  - https://immersive-web.github.io/anchors/
+- [x] WebXR Lighting Estimation API Level 1
+  - feature descriptor: `"light-estimation"`
+  - https://immersive-web.github.io/lighting-estimation/
+- [x] WebXR Hand Input Module - Level 1 
+  - feature descriptor: `"hand-tracking"`
+  - https://immersive-web.github.io/webxr-hand-input/
+- [x] WebXR Mesh Detection Module
+  - feature descriptor: `"mesh-detection"`
   - https://immersive-web.github.io/real-world-meshing/
 - [x] WebXR Plane Detection Module
-  - https://immersive-web.github.io/real-world-geometry/plane-detection.html#plane
+  - feature descriptor: `"plane-detection"`
+  - https://immersive-web.github.io/real-world-geometry/plane-detection.html
+- [x] WebXR Raw Camera Access Module
+  - feature descriptor: `"camera-access"`
+  - https://immersive-web.github.io/raw-camera-access/
+- [x] WebXR Depth Sensing Module
+  - feature descriptor: `"depth-sensing"`
+  - https://immersive-web.github.io/depth-sensing/
+
+## HoloKitDevice
   - 
-# https://github.com/chromium/chromium/blob/b2b2557e55c332b80c1d0d29824b3e5fe3380e27/android_webview/tools/system_webview_shell/test/data/webexposed/not-webview-exposed.txt#L144
-# WebXR dependent interfaces are not supported on WebView crbug.com/1012899
-interface XRView
-interface XRViewport
-interface XRSystem : EventTarget
-interface XRFrame
-interface XRRigidTransform
-interface XRSpace : EventTarget
-interface XRInputSourcesChangeEvent : Event
-interface XRInputSource
-interface XRWebGLLayer : XRLayer
-interface XRInputSourceEvent : Event
-interface XRViewerPose : XRPose
-interface XRInputSourceArray
-interface XRRenderState
-interface XRPose
-interface XRSession : EventTarget
-interface XRReferenceSpaceEvent : Event
-interface XRBoundedReferenceSpace : XRReferenceSpace
-interface XRSessionEvent : Event
-interface XRReferenceSpace : XRSpace
-interface WebGLRenderingContext
-    method makeXRCompatible
-interface WebGL2RenderingContext
-    method makeXRCompatible
-interface XRHitTestSource
-interface XRRay
-interface XRTransientInputHitTestResult
-interface XRHitTestResult
-interface XRTransientInputHitTestSource
-interface XRAnchor
-interface XRAnchorSet
-interface XRLightEstimate
-interface XRLightProbe : EventTarget
-interface XRWebGLBinding
-    method getCameraImage
-    method getDepthInformation
-    method getReflectionCubeMap
-interface XRDepthInformation
-interface XRCPUDepthInformation : XRDepthInformation
-interface XRWebGLDepthInformation : XRDepthInformation
-interface XRCamera
-`
+  - 
+
+## Reference
+
+- Javascript Implementation for WebXR Polyfill for Mozilla XRViewer with ARKitDevice
+  - https://github.com/MozillaReality/webxr-ios-js
+- Official Javascript Implementation of WebXR Polyfill   
+  - https://github.com/immersive-web/webxr-polyfill 
+- Offiial Typescript implementation of WebXR Layers Polyfill 
+  - https://github.com/immersive-web/webxr-layers-polyfill
+- Immersive Web Emulator by Meta, which implements extension of Full input emulation support
+  - https://github.com/meta-quest/immersive-web-emulator
+- Typescript implementation of Looking Glass WebXR polyfill
+  - https://github.com/Looking-Glass/looking-glass-webxr

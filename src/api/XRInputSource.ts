@@ -59,7 +59,7 @@ export default class XRInputSource {
   /**
    * @see https://immersive-web.github.io/webxr-gamepads-module/#xrinputsource-interface
    */
-  get gamepad(): Gamepad | null { 
+  get gamepad(): Nullable<Gamepad> { 
     return this.#impl.gamepad; 
   }
 

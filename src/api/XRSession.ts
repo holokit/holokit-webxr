@@ -615,4 +615,26 @@ export default class XRSession extends EventTarget {
 
   }
 
+  async requestHitTestSource() {
+    if (!session.enabledFeatures.has('hit-test')) {
+      return Promise.reject(
+        new DOMException(
+          'hit-test feature not requested or not supported',
+          'NotSupportedError',
+        ),
+      );
+    }
+    const source = new XRHitTestSource(this, options);
+			device.addHitTestSource(source);
+    return Promise.resolve(source);
+  }
+
+
+  get depthUsage(): XRDepthUsage {
+
+  }
+  get depthDataFormat(): XRDepthDataFormat {
+    
+  }
+
 }

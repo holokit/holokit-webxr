@@ -7,6 +7,7 @@ import { mat4 } from 'gl-matrix';
 import XRViewport, { XRViewportInit } from './XRViewport';
 import XRRigidTransform from './XRRigidTransform';
 import XRDevice from './XRDevice';
+import XRCamera from './XRCamera';
 
 export enum XREye { 
   'left' = 'left',
@@ -89,4 +90,12 @@ export default class XRView {
     }
     return undefined;
   }
+
+  /**
+   * @see https://immersive-web.github.io/raw-camera-access/
+   */
+  get camera(): XRCamera | null {
+    return this.#device.getCamera();
+  }
+
 }

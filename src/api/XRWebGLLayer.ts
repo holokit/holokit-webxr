@@ -24,7 +24,6 @@ export type XRWebGLRenderingContext = WebGLRenderingContext | WebGL2RenderingCon
  * ref: https://immersive-web.github.io/webxr/#xrlayer-interface
  */
 
-
 export interface XRWebGLLayerInit {
 	antialias?: boolean;
 	depth?: boolean;
